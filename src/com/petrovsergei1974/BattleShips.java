@@ -7,11 +7,9 @@ public class BattleShips {
         startGame();
     }
 
-    private static void startGame() {
+    static void startGame() {
 
-        for (int i = 0; i < cells.length; i++) {
-            cells[i] = '.';
-        }
+
         int shipPosition = 4;
         cells[shipPosition] = 'X';
 
