@@ -1,40 +1,26 @@
 package com.petrovsergei1974;
 
-import java.util.Scanner;
-
 public class BattleShips {
     public static void main(String[] args) {
         startGame();
     }
 
     static void startGame() {
+        Field field = new Field();
+        Player player = new Player();
+        Ship ship = new Ship();
+        ship.position = 4;
 
-
-        int shipPosition = 4;
-        cells[shipPosition] = 'X';
+        field.init();
+        field.setShip(ship);
 
         do {
-
-
-            int shoot = 0;
-            shoot = getShoot();
-
-
-            switch (cells[shoot]) {
-                case '.':
-                    System.out.println("Промах");
-                    cells[shoot] = '*';
-                    break;
-                case 'X':
-                    System.out.println("Потопили");
-                    cells[shoot] = '#';
-                    break;
-                case '*':
-                    System.out.println("Уже стреляли");
-                    break;
-            }
+            field.show();
+            int shoot = player.getShoot();
+            field.doShoot(shoot);
         }
-        while (cells[shipPosition] == 'X');
-        System.out.println(cells);
+
+        while (field.continueGame());
+        field.show();
     }
 }

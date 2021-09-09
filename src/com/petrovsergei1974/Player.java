@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Player {
     String name;
 
-    static int getShoot() {
+    int getShoot() {
         int shoot;
         Scanner scanner = new Scanner(System.in);
         while (true) {
